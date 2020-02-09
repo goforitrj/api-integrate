@@ -6,6 +6,7 @@ const initialState = {
     error: null
 };
 
+// Reusable hook for requesting Data
 function reducer(state, action) {
     switch (action.type) {
         case 'LOADING':
