@@ -1,10 +1,10 @@
 import React from 'react';
-import Users from './Users';
+import UsersReducer from './UsersReducer';
 
 function App() {
     return (
         <div className="App">
-            <Users />
+            <UsersReducer />
         </div>
     );
 }
