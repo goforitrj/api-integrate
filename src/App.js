@@ -1,10 +1,10 @@
 import React from 'react';
-import UsersReducer from './UsersReducer';
+import UsersUseAsync from './UsersUseAsync';
 
 function App() {
     return (
         <div className="App">
-            <UsersReducer />
+            <UsersUseAsync />
         </div>
     );
 }
