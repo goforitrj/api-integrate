@@ -1,10 +1,13 @@
 import React from 'react';
-import UsersUseAsync from './components/Users_3_CustomHook';
+import Users from './components/Users_5_userscontext';
+import { UsersProvider } from './components/UsersContext';
 
 function App() {
     return (
         <div className="App">
-            <UsersUseAsync />
+            <UsersProvider>
+                <Users />
+            </UsersProvider>
         </div>
     );
 }

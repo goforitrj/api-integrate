@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import useAsync from '../hook/useAsync';
-import User from './User_2_react-async';
-
-async function getUsers() {
-    const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/users'
-    );
-    return response.data;
-}
+import { useUsersState, useUsersDispatch, getUsers } from './UsersContext';
+import User from './User_3_userscontext';
 
 function Users() {
     const [userId, setUserId] = useState(null);
-    const [state, refetch] = useAsync(getUsers, [], true);
+    const state = useUsersState();
+    const dispatch = useUsersDispatch();
 
-    const { loading, error, data: users } = state;
+    const { data: users, loading, error } = state.users;
+    const fetchData = () => {
+        getUsers(dispatch);
+    };
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error...</div>;
-    if (!users) return <button onClick={refetch}>Fetch users data</button>;
+    if (!users) return <button onClick={fetchData}>Fetch users data</button>;
+
     return (
         <>
             <ul>
@@ -34,7 +31,7 @@ function Users() {
                     </li>
                 ))}
             </ul>
-            <button onClick={refetch}>Fetch users data </button>
+            <button onClick={fetchData}>ReFetch users data </button>
             {userId && <User id={userId} />}
         </>
     );
