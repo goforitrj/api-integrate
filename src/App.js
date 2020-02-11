@@ -1,5 +1,5 @@
 import React from 'react';
-import Users from './components/Users_5_userscontext';
+import Users from './components/Users';
 import { UsersProvider } from './components/UsersContext';
 
 function App() {

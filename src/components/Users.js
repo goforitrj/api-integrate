@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useUsersState, useUsersDispatch, getUsers } from './UsersContext';
-import User from './User_3_userscontext';
+import User from './User';
 
 function Users() {
     const [userId, setUserId] = useState(null);
